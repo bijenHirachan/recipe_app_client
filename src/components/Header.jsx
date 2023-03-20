@@ -138,14 +138,16 @@ const Header = ({ isAuthenticated }) => {
                     Log Out
                   </Button>
                 </HStack>
-                <Button
-                  onClick={onClose}
-                  variant={'solid'}
-                  colorScheme="purple"
-                >
-                  <RiDashboardFill style={{ margin: '4px' }} />
-                  Dashboard
-                </Button>
+                <Link to={'/dashboard'}>
+                  <Button
+                    onClick={onClose}
+                    variant={'solid'}
+                    colorScheme="purple"
+                  >
+                    <RiDashboardFill style={{ margin: '4px' }} />
+                    Dashboard
+                  </Button>
+                </Link>
               </VStack>
             ) : (
               <HStack>

@@ -35,7 +35,7 @@ const Categories = () => {
       dispatch({ type: 'clearError' });
     }
     if (message) {
-      toast.message(message);
+      toast.success(message);
       dispatch({ type: 'clearMessage' });
     }
   }, [dispatch, error, message]);

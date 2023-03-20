@@ -22,6 +22,8 @@ import Loading from './components/Loading';
 import toast, { Toaster } from 'react-hot-toast';
 import ForgotPassword from './components/ForgotPassword';
 import ResetPassword from './components/ResetPassword';
+import NotFound from './components/NotFound';
+import Dashboard from './components/Dashboard';
 
 function App() {
   const { loading, error, message, isAuthenticated, user } = useSelector(
@@ -128,6 +130,15 @@ function App() {
                 </ProtectedRoute>
               }
             />
+            <Route
+              path="/dashboard"
+              element={
+                <ProtectedRoute isAuthenticated={isAuthenticated}>
+                  <Dashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />
         </Router>

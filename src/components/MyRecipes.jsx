@@ -26,32 +26,41 @@ const MyRecipes = () => {
   }, [dispatch, error, message]);
 
   return (
-    <Box h={'90vh'} bg={'purple.100'} py={24} px={[6, 24]} overflowY="auto">
-      <Heading children="My Recipes" textAlign={'center'} my={6} />
-      <SimpleGrid
-        // templateColumns="repeat(auto-fill, minmax(200px, 1fr))"
-        templateColumns={['1fr', '1fr 1fr', '1fr 1fr 1fr', '1fr 1fr 1fr 1fr']}
-        spacing={4}
-      >
-        {loading ? (
-          <Loading />
-        ) : myRecipes && myRecipes.length > 0 ? (
-          myRecipes.map(recipe => (
-            <RecipeCard key={recipe._id} recipe={recipe} />
-          ))
-        ) : (
-          <Card>
-            <CardBody my={6}>
-              <Heading
-                size={'md'}
-                children="No recipes yet"
-                textAlign={'center'}
-              />
-            </CardBody>
-          </Card>
-        )}
-      </SimpleGrid>
-    </Box>
+    <>
+      {loading ? (
+        <Loading />
+      ) : (
+        <Box h={'90vh'} bg={'purple.100'} py={24} px={[6, 24]} overflowY="auto">
+          <Heading children="My Recipes" textAlign={'center'} my={6} />
+
+          {myRecipes && myRecipes.length > 0 ? (
+            <SimpleGrid
+              templateColumns={[
+                '1fr',
+                '1fr 1fr',
+                '1fr 1fr 1fr',
+                '1fr 1fr 1fr 1fr',
+              ]}
+              spacing={4}
+            >
+              {myRecipes.map(recipe => (
+                <RecipeCard key={recipe._id} recipe={recipe} />
+              ))}
+            </SimpleGrid>
+          ) : (
+            <Card>
+              <CardBody my={6}>
+                <Heading
+                  size={'md'}
+                  children="No recipes yet"
+                  textAlign={'center'}
+                />
+              </CardBody>
+            </Card>
+          )}
+        </Box>
+      )}
+    </>
   );
 };
 
