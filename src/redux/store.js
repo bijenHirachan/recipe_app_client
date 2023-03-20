@@ -14,5 +14,5 @@ const store = configureStore({
 
 export default store;
 
-export const server = process.env.REACT_APP_SERVER_URI;
-// export const server = 'https://recipe-app-server-zv4s.onrender.com/api/v1';
+// export const server = process.env.REACT_APP_SERVER_URI;
+export const server = 'https://recipe-app-server-zv4s.onrender.com/api/v1';
