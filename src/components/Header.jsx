@@ -56,7 +56,9 @@ const Header = ({ isAuthenticated }) => {
       >
         <DrawerOverlay />
         <DrawerContent bg={'purple.200'}>
-          <Img ml={24} mt={24} src={logo} w={'35%'} />
+          <HStack justifyContent={'center'}>
+            <Img mt={24} src={logo} w={'75%'} />
+          </HStack>
           <VStack my={24} alignItems={'flex-start'} pl={20}>
             <Link to={'/'}>
               <Button
